@@ -1,0 +1,28 @@
+.img{
+     width:100%;
+     height:90vh;
+}
+.box {
+      position:relative;
+}
+.box .but{
+    position:absolute;
+    top:50%;
+   
+    text-decoration: none;
+    left:40%;
+}
+.but button{
+    padding:6px;
+    margin:10px;
+    text-decoration: none;
+    border-radius: 15%;
+    font-family: cursive;
+    height:8vh;
+    width:8vw;
+}
+button .link{
+    color:white;
+    text-decoration: none;
+    
+}
