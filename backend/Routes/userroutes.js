@@ -47,9 +47,9 @@ else{
 
 })
 router.post('/login',async (req,res)=>{
-  let {email,password,role}=req.body;
+  let {username,email,password,role}=req.body;
 console.log(role);
-  let user=await User.findOne({email,role});
+  let user=await User.findOne({username,email,role});
 console.log(user);
   if(user){
   await bcrypt.compare(password,user.password,((err,result)=>{

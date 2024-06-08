@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-
+const Product=require('./Product');
 const userschema =new mongoose.Schema({
     username:{
         type:String,
@@ -16,7 +16,13 @@ const userschema =new mongoose.Schema({
     role:{
         type:String,
         required:true
-    }
+    },
+    cart:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Product'
+        }
+    ]
 })
 const User=mongoose.model('User',userschema);
 module.exports=User;

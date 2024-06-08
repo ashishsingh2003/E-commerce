@@ -14,6 +14,7 @@ function Login() {
   let em=useRef();
   let pass=useRef();
   let rol=useRef();
+  let name=useRef();
   let rol2=useRef();
   let role;
   console.log(rol.value);
@@ -23,13 +24,14 @@ function Login() {
            e.preventDefault();
           let email=em.current.value;
            let password=pass.current.value;
+           let username=name.current.value;
            if(rol.current.checked)
             role= rol.current.value;
            else{
              role= rol2.current.value;
            }
            try {
-            let res=await axios.post('http://localhost:8081/login',{email,password,role});
+            let res=await axios.post('http://localhost:8081/login',{username,email,password,role});
             console.log(res.data.email);
             if(res.data.email.length>0){
               console.log()
@@ -57,7 +59,10 @@ function Login() {
   <div className="col-md-6 mx-auto">
    <h1 className="display-6">Login</h1>
       <form onSubmit={login}>
-         
+           <div  className="mb-3">
+            <label htmlFor="username" className="form-label">Username</label>
+            <input type="text" ref={name}  className="form-control" name="username" placeholder="email"/>
+           </div>
           <div  className="mb-3">
             <label htmlFor="email" className="form-label">E-mail</label>
             <input type="email" ref={em}  className="form-control" name="email" placeholder="email"/>

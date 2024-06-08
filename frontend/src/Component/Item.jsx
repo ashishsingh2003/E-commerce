@@ -18,6 +18,12 @@ function Item(props) {
     e.preventDefault();
       navigate(`/edit/${props.prod_id}`);
    }
+   const addcart=async (e)=>{
+    e.preventDefault();
+    let id=props.id;
+    let res=await axios.post(`http://localhost:8081/addcart/${props.prod_id}`,{id});
+    console.log(res);
+   }
   return (
 
      
@@ -33,15 +39,13 @@ function Item(props) {
         <h5 className="card-title">Location:{props.loc}</h5>
         <button className="btn btn-primary ml-3 mr-3">View</button>
         {
-        props.id===props.sel_id ? 
-        (<button  className="btn btn-primary mx-3 mr-3" onClick={delet}>Delete</button> )
-        :(<button className="btn btn-primary mx-3 mr-3">Add to cart</button>)
-        }
-         {
-        props.id===props.sel_id ? 
-        (<button className="btn btn-primary " onClick={edit}>Edit</button> )
-        :(div)
-        }
+        props.id===props.sel_id ? ((<button className="btn btn-primary mx-3 mr-3" onClick={delet}>Delete</button>))
+        :(<button className="btn btn-primary m-3" onClick={addcart}>Add to cart</button>)
+}{
+        props.id===props.sel_id ? (<button className="btn btn-primary " onClick={edit}>Edit</button>):(<button className="btn btn-primary ">Pay</button>)
+        
+}
+       
         </div>
         </div>
     </div>

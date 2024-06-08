@@ -69,10 +69,11 @@ function Dash() {
     <div>
     <ul className={styles.plain}>
       {
-
+          
             prod.map((item,index)=>{
               console.log(item._id);
-                return <Item  getprod={getprod}img={item.img} key={index}sel_id={item.id} id={params.id} prod={item.product} prod_id={item._id}price={item.price} loc={item.location} num={item.number} />
+                
+                return <Item  getprod={getprod} role={params.role} img={item.img} key={index}sel_id={item.id} id={params.id} prod={item.product} prod_id={item._id}price={item.price} loc={item.location} num={item.number} />
             })
       }
     </ul>
